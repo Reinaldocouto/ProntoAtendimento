@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class PalindromosGS {
+
+	public static void main(String[] args) 
+	{
+		Scanner teclado = new Scanner (System.in);
+		String frase;
+		boolean palindrome = true; 
+		int i, j, numero;
+		StringBuffer aux= new StringBuffer();
+		
+		//Entrada de dados
+		System.out.println("Digite uma palavra: ");
+		frase = teclado.nextLine() .toUpperCase();
+		
+		char palavra[] = frase.toCharArray();
+		
+		j = palavra.length -1;
+		
+		for(i=0; i<palavra.length; i++)
+			if(palavra[i] == palavra[j])
+			{
+				numero = Character.digit(palavra[i], 10);
+				System.out.println("numero= "+ numero);
+				j--;
+			}
+			else
+			{
+				palindrome = false;
+				break;
+			}
+		
+		
+		
+		//processamento
+		if(palindrome == true)
+			System.out.println("A palavra " + frase + " é palíndrome!");
+		else
+			System.out.println("A palavra " + frase + " não é palíndrome!");
+		
+		aux.append(frase);
+		aux.reverse();
+		
+		if(frase.equals(aux.toString()) == true)
+			System.out.println("A PALAVRA " + frase + " É PALINDROME!");
+		else
+			System.out.println("A PALAVRA " + frase + " NÃO É PALINDROME!");
+			
+			
+		teclado.close();
+
+	}
+
+}
